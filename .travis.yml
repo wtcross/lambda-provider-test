@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - '0.11'
 after_success:
-  - git clone -b feat-lambda-provider git@github.com:wtcross/dpl.git
+  - git clone -b feat-lambda-provider https://github.com/wtcross/lambda-provider-test.git
   - chmod +x ${HOME}/dpl/bin/dpl
   - rm -rf ./node_modules
   - npm install --production
