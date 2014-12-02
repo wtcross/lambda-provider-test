@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - '0.11'
+  - '0.10'
+after_success:
+  - git clone -b feat-lambda-provider git@github.com:wtcross/dpl.git
+  - chmod +x ${HOME}/dpl/bin/dpl
+  - ${HOME}/dpl/bin/dpl --provider=lambda --access_key_id=${AWS_ACCESS_KEY} --secret_access_key=${AWS_SECRET_KEY} --function_name='test-lambda' --role='${LAMBDA_ROLE}' --handler='handler'
