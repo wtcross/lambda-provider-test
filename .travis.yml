@@ -4,6 +4,9 @@ node_js:
 after_success:
   - "git clone -b feat-lambda-provider https://github.com/wtcross/dpl.git ${HOME}/dpl"
   - "chmod +x ${HOME}/dpl/bin/dpl"
+  - "cd ${HOME}/dpl"
+  - "bundle install"
+  - "cd -"
   - "rm -rf ./node_modules"
   - "npm install --production"
   - "${HOME}/dpl/bin/dpl --provider=lambda --access_key_id=${AWS_ACCESS_KEY} --secret_access_key=${AWS_SECRET_KEY} --function_name='test-lambda' --role='${LAMBDA_ROLE}' --handler='handler'"
