@@ -1,4 +1,3 @@
 "use strict";
-var handler = require("./lib/handler");
 
-exports.handler = handler;
+module.exports.handler = require("./lib/handler");
